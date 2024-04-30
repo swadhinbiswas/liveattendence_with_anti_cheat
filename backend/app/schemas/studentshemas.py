@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
+
 class StudentBase(BaseModel):
     id: int
     name: str
