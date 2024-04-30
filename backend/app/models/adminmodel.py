@@ -8,6 +8,16 @@ from typing import Optional
 Base = declarative_base()
 
 class Admin(Base):
+    """
+    Admin Model
+    
+    Args:
+        Base ([type]): [description]
+        
+        Returns:
+        [type]: [description]
+        
+        """
     __tablename__ = 'admin'
     id = Column(Integer, primary_key=True)
     name = Column(String(100))
@@ -18,6 +28,9 @@ class Admin(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
+    """
+    __init__ function
+    """
     def __init__(self, name: str, email: str, password: str, role: str, status: int):
         self.name = name
         self.email = email
@@ -27,7 +40,10 @@ class Admin(Base):
     
     def __repr__(self):
         return f"<Admin({self.name},{self.email},{self.role},{self.status})>"
-      
+    
+    """
+    to_dict function
+    """
     def to_dict(self):
         return {
             "id": self.id,

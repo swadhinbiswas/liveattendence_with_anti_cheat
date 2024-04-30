@@ -7,6 +7,17 @@ from typing import Optional
 
 Base = declarative_base()
 
+"""
+Student Model
+
+Args:
+    Base ([type]): [description]
+    
+    Returns:
+    [type]: [description]
+    
+    """
+
 class Student(Base):
     __tablename__ = 'student'
     id = Column(Integer, primary_key=True)
