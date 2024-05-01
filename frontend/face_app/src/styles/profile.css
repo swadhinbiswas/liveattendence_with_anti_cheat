@@ -1,0 +1,41 @@
+.card-containe {
+	background-color: #496081;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(17, 16, 16, 0.75);
+	color: #000000;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	height: 500px;
+	max-width: 100%;
+	text-align: center;
+	
+}
+
+.card-containe .card {
+	color: #231E39;
+	background-color: #FEBB0B;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 7px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.card-containe .round {
+	border: 1px solid #09adb9;
+	border-radius: 50%;
+	padding: 7px;
+}
+.card-containe .stu {
+ font-size: 19px;
+ font-weight: 600;
+ text-align: center;
+ color: #000;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: italic;
+ 
+
+}

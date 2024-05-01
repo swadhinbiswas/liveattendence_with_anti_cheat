@@ -1,0 +1,49 @@
+.menu{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 14px;
+  height: 94vh;
+}
+
+.logo{
+  text-align: center;
+  color:rgb(13, 126, 218);
+  
+  display: flex;
+  gap:10px;
+
+}
+.logo .icon{
+  font-size: 30px;
+  color: #1a9ce2;
+  display: flex;
+ 
+}
+
+
+.menu-list{
+    flex-direction: column;
+    display: flex;
+  
+    gap:20px;
+}
+
+.menu-list .item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    color: #27374d;   
+}
+
+.menu-list .item:hover{
+    background-color: #27374d;
+    color: dodgerblue;
+}
