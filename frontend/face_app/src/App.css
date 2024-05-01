@@ -1,20 +1,2 @@
-.dashboard{
-  display: flex;
-  justify-content: space-between;
-  margin: 0 20px;
-}
-.dashborad .sidebar{
-  width: 20%;
-  background-color: #27374d;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
 
-.dashboard .profile{
-  width: 10%;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-}
 

@@ -1,0 +1,93 @@
+/* Overall login form container */
+.login {
+  display: flex;
+  width: 100%; /* Adjust width as needed */
+  padding: 20px;
+  border: 1px solid #13121208;
+  border-radius: 5px;
+  background-color: #aebde7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+/* Login video (image) */
+.loginvid {
+  flex:auto; /* Set width to 50% of the container */
+  height:auto;
+  width: 550px; /* Adjust height as needed */
+  overflow: hidden;
+  background-color: black;
+  border-radius: 12px;
+
+}
+.imagex{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+
+/* Login form elements */
+.inputs {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 19px;
+  justify-content: center;
+  border-radius: 12px;
+
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid #0a0909;
+  border-radius: 3px;
+}
+
+.logintext{
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+
+}
+.icon {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+
+input[type="email"],
+input[type="password"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+/* Login button */
+.loginbtn {
+  background-color: #007bff;
+  color: #fff;
+  position: relative;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  transition: background-color 0.2s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;;
+}
+
+.loginbtn:hover {
+  background-color: #0062cc;
+}
+
