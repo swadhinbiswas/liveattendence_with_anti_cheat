@@ -10,25 +10,7 @@ app=FastAPI()
 async def home():
     return {"message":"Welcome to the Live Attendance System"}
 
-@app.post("/create")
-async def add_to_db(Student:StudentModel):
-    ref=Firebase.ref
-    data={
-        Student.id: {
-            "name": Student.name,
-            "email": Student.email,
-            "status": Student.status,
-            "Department": Student.Department,
-            "Semester": Student.Semester,
-            "Section": Student.Section,
-            "Total_Attendance": Student.Total_Attendance,
-            "last_seen": Student.last_seen,
-        }
-    }
-    
-    for key,value in data.items():
-        ref.child(key).set(value)
-    return data
+
 
 if __name__ == '__main__':
     import uvicorn
