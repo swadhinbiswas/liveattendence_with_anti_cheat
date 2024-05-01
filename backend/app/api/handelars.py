@@ -1,16 +1,14 @@
-from app.functions.videoapp import Camera
-from fastapi import FastAPI, Response
+from fastapi import Depends, HTTPException, status
 from app.models.studentmodel import StudentModel
+from fastapi import APIRouter
 from app.settings.connectdb import Firebase
 
-app=FastAPI()
 
 
-@app.get("/")
-async def home():
-    return {"message":"Welcome to the Live Attendance System"}
+db_add=APIRouter()
 
-@app.post("/create")
+
+@db_add.post("/create")
 async def add_to_db(Student:StudentModel):
     ref=Firebase.ref
     data={
@@ -26,15 +24,5 @@ async def add_to_db(Student:StudentModel):
         }
     }
     
-    for key,value in data.items():
-        ref.child(key).set(value)
-    return data
-
-if __name__ == '__main__':
-    import uvicorn
-    
-    uvicorn.run(app = "main:app", host="localhost", port=8000, reload=True)
-
-
-
-  
+    ref.push(data)
+    return {data:data}

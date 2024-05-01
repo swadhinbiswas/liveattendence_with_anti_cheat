@@ -5,9 +5,8 @@ class StudentBase(BaseModel):
     id: int
     name: str
     email: str
-    hashpassword: str
-    status: int
-    student_photos: Optional[int]
+    status:str
+    
     class Config:
         from_attributes = True
 
