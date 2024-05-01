@@ -9,6 +9,7 @@ const Login = () => {
   
 
   return (
+    <div className='container'>
     <div className='login'>
       
       <div className='loginvid'>
@@ -33,6 +34,7 @@ const Login = () => {
       
       </div>
      
+    </div>
     </div>
   )
 }
