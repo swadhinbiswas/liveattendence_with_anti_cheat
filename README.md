@@ -3,7 +3,7 @@
 
 
 
-![LoginPage](photos/loginpage.gif)
+
 
 
 **Secure Face Login with Liveness Detection (Python & React)**
@@ -34,3 +34,9 @@ Covers Modules:
 - secure login
 - biometrics
 - authentication
+
+# FontEnd
+-----------
+### Login Page
+![LoginPage](photos/loginpage.gif)
+
