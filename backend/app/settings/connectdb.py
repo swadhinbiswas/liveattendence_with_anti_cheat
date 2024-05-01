@@ -4,7 +4,7 @@ from firebase_admin import db
 import os
 
 class Firebase:
-  path=os.path.join(os.path.dirname(__file__), "serviceAccountKey.json")
+  path=os.path.join(os.path.dirname(__file__), "path/to/your/firebase/credentials.json")
   cred = credentials.Certificate(path)
   firebase_admin.initialize_app(cred,{
     'databaseURL': 'https://database-faceapp-default-rtdb.asia-southeast1.firebasedatabase.app/'
