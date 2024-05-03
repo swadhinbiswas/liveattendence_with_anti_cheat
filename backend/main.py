@@ -1,9 +1,14 @@
-from app.functions.videoapp import Camera
-from fastapi import FastAPI, Response
-from app.models.studentmodel import StudentModel
+
+
+from fastapi import FastAPI, APIRouter
+from app.routes.routesadd import router
+
+# from app.models.studentmodel import StudentModel
 from app.settings.connectdb import Firebase
 
 app=FastAPI()
+
+app.include_router(router)
 
 
 @app.get("/")

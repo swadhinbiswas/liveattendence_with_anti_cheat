@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class StudentModel(BaseModel):
+class StudentModelshema(BaseModel):
     name: str
     email: str
     status: str
@@ -8,6 +8,5 @@ class StudentModel(BaseModel):
     Semester: str
     Section: str
     Total_Attendance: str
-    last_seen: str 
     id: str
     
