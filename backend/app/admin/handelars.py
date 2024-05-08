@@ -81,10 +81,7 @@ async def uploadimage(img:UploadFile=File(...)):
         return {"message":str(e)}
     finally:
         file.close()
-@db_add.get("/encoding")
-async def encoding():
-    x=EndcodeGenarator().findencoding()
-    return x
+
 
    
 

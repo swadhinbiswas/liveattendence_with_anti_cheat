@@ -3,10 +3,11 @@ import numpy as np
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 from app.functions.face import Face
-import streamlit as st
+import streamlit as st 
+from app.functions.encodeGenarator import EndcodeGenarator
 # from app.settings import setting
 # camip=setting.CAM_IP
-camip="192.168.0.100"
+camip="192.168.0.103"
 
 
 
@@ -16,7 +17,8 @@ videorouter = APIRouter()
 
 
 def video_feed():
-    cap = cv2.VideoCapture("http://"+camip+":8080/video")
+    
+    cap = cv2.VideoCapture("http://"+camip+":3030/video")
     cap.set(3, 640)
     cap.set(4, 480)
 
@@ -35,10 +37,19 @@ def video_feed():
 
 
 @videorouter.get("/video_feed")
-def stream():
+async def stream():
+    
     return StreamingResponse(video_feed(), media_type="multipart/x-mixed-replace; boundary=frame")
-def fetch():
-    st.write("hello")
-    return "hello"
+
+
+@videorouter.get("/encode")
+def encode():
+    x=EndcodeGenarator()
+    y= x.findencoding()
+    return y
+
+@videorouter.get("/video")
+def video():
+    return st.markdown(f'<iframe width="560" height="315" src="http://{camip}:3030/video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', unsafe_allow_html=True)
 
 

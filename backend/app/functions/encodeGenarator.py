@@ -2,6 +2,7 @@ import os
 import pickle
 import face_recognition
 import cv2
+import asyncio
 from app.settings.connectdb import Firebase
 
 
@@ -21,15 +22,12 @@ class EndcodeGenarator:
     self.ref = Firebase().ref
     self.bucket = Firebase().bucket
     self.idsref = Firebase().idsref
-    imagepath=self.imagepath
-    picklepath=self.picklepath
-    pathlist=self.pathlist
   
-  def findencoding(self):
+  async def findencoding(self):
     imageList=self.pathlist
     for img in imageList:
      bucket=self.bucket
-     ref=self.ref
+     ref=self.ref 
      if not bucket.get_blob(f"faceappimage/{img}"):
       with open(f"{self.imagepath}/{img}","rb") as file:
        bucket.blob(f"faceappimage/{img}").upload_from_file(file)
@@ -41,9 +39,7 @@ class EndcodeGenarator:
         img=cv2.cvtColor(cv2img,cv2.COLOR_BGR2RGB)
         encode=face_recognition.face_encodings(img)[0]
         self.encodings.append(encode)
-        self.idsref.child(id).set(encode.tolist())
-        
-        
+        self.idsref.child(id).set(encode)
     encodeKnowlist=[self.encodings,self.studentids]
     file=open(self.picklepath,"wb")
     pickle.dump(encodeKnowlist,file)
