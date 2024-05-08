@@ -11,6 +11,18 @@
   border-radius: 10px;
 }
 
+.dashboard .main{
+  width: 70%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.dashboard .video{
+  width: 70%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+}
 .dashboard .profile{
   width: 10%;
   background-color: #ffffff;

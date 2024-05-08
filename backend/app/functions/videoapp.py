@@ -28,6 +28,7 @@ def video_feed():
         x=Face(img)
         frame=x.facedefine()
         y=x.get_student_id()
+      
         if not success:
             break
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -35,8 +36,6 @@ def video_feed():
         frame = buffer.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-        
-        return y
 
     
 
@@ -73,5 +72,7 @@ async def getstudentsdata():
     x=GetgaceandData().get_data_by_key()
     return x
 
-
-    
+@videorouter.get("/getid")
+async def getid():
+   x=video_feed()
+   

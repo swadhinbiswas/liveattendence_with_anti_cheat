@@ -4,12 +4,14 @@ import Profile from './Profile'
 import Login from './Login'
 import Side from './Side'
 import '../styles/dashboard.css'
+import '../components//VideoStream'
+import VideoStream from '../components//VideoStream'
 
 const Dashboard = () => {
   return (
     <div className="dashboard">
     <Side  className="sidebar"/>
-     <Login className="admin" />
+     <VideoStream className="vid"/>
      <Profile className="profile"/>
      
 
