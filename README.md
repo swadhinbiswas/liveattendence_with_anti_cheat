@@ -75,7 +75,7 @@ Covers Modules:
 #  Work Flow 
 ```
 
-	✅ EncodeFace
+	  ✅ EncodeFace
     ✅ Database Connection 
     ✅ Upload encode Picture to Database 
     ✅Setup plugins 
