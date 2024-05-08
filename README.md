@@ -73,8 +73,20 @@ Covers Modules:
 
 
 #  Work Flow 
+```
 
-	✅ EncodeFace ✅ Database Connection ✅ Upload encode Picture to Database ✅Setup plugins ✅Fontend ✅ Building API ✅ Authentication ✅ RealtimeDatabase Sync                                        ❌ Connect Backend With Fontend        ❌ Deploy App
+	✅ EncodeFace
+    ✅ Database Connection 
+    ✅ Upload encode Picture to Database 
+    ✅Setup plugins 
+    ✅Fontend 
+    ✅ Building API 
+    ✅ Authentication 
+    ✅ RealtimeDatabase Sync 
+    ❌ Connect Backend With Fontend
+    ❌ Deploy App
+
+```
 
 
 
