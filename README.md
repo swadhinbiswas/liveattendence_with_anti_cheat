@@ -40,3 +40,41 @@ Covers Modules:
 ### Login Page
 ![LoginPage](photos/loginpage.gif)
 
+
+
+
+
+### BackEnd 
+
+-  ### Face recognition 
+- ### Anti-Spoofing 
+- ### FastAPI
+- ### Firebase[As realtime Database]
+
+## Backend Stracture 
+![ImageBackend](photos/faceaoo.jpeg)
+
+## working process of Face recognition
+
+### [How the  Face Recognition Work using deeplearning ](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
+![faceapp](photos/faceapp.gif)
+
+
+## Antispoofing 
+
+### [How to antispoofing work ](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing)
+
+![Anti spoofing](photos/85498505-6ff1-4110-b67c-bac030223467.jpeg)
+
+###  example:
+![example](photos/-video-to-gif-converter.gif)
+
+
+
+
+#  Work Flow 
+
+	✅ EncodeFace ✅ Database Connection ✅ Upload encode Picture to Database ✅Setup plugins ✅Fontend ✅ Building API ✅ Authentication ✅ RealtimeDatabase Sync                                        ❌ Connect Backend With Fontend        ❌ Deploy App
+
+
+

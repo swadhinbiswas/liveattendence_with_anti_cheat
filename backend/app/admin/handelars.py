@@ -83,8 +83,5 @@ async def uploadimage(img:UploadFile=File(...)):
         file.close()
 
 
-   
-
-
 
 

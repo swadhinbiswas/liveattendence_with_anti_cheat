@@ -5,6 +5,7 @@ from fastapi.responses import StreamingResponse
 from app.functions.face import Face
 import streamlit as st 
 from app.functions.encodeGenarator import EndcodeGenarator
+from app.functions.getfacefromdatabase import GetgaceandData
 # from app.settings import setting
 # camip=setting.CAM_IP
 camip="192.168.0.103"
@@ -26,6 +27,7 @@ def video_feed():
         success, img = cap.read()
         x=Face(img)
         frame=x.facedefine()
+        y=x.get_student_id()
         if not success:
             break
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -33,6 +35,9 @@ def video_feed():
         frame = buffer.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        
+        return y
+
     
 
 
@@ -52,4 +57,21 @@ def encode():
 def video():
     return st.markdown(f'<iframe width="560" height="315" src="http://{camip}:3030/video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', unsafe_allow_html=True)
 
+@videorouter.get("/genarateface")
+def genarateface():
+    x=EndcodeGenarator()
+    y= x.findencoding()
+    return y
 
+@videorouter.get("/getstudentsphotos")
+async def getstudentsphotos():
+    x=GetgaceandData().get_picture()
+    return x
+
+@videorouter.get("/getstudentsdata")
+async def getstudentsdata():
+    x=GetgaceandData().get_data_by_key()
+    return x
+
+
+    

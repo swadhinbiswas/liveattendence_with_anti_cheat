@@ -5,7 +5,7 @@ import numpy as np
 
 
 from face_recognition import face_locations, face_encodings, compare_faces, face_distance
-class Face:
+class Face():
   def __init__(self,frame):
     self.frame=frame
     self.ids=[]
@@ -43,7 +43,17 @@ class Face:
           cv2.putText(frame,"Unknown",(x1+6,y2-6),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),2)   
   
           return frame
-
+  def get_student_id(self):
+    return self.ids
+        
+        
+# class Ids(Face):
+#   def __init__(self):
+#     super().__init__(frame)
+#     self.ids=[]
+    
+#   def getstudentid(self):
+#     return self.ids
 
 
 

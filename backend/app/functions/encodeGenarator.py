@@ -6,11 +6,6 @@ import asyncio
 from app.settings.connectdb import Firebase
 
 
-
-
-
-
-
 class EndcodeGenarator:
   def __init__(self):
     self.known_face_encodings = []
@@ -23,18 +18,13 @@ class EndcodeGenarator:
     self.bucket = Firebase().bucket
     self.idsref = Firebase().idsref
   
-  async def findencoding(self):
+  def findencoding(self):
     imageList=self.pathlist
     for img in imageList:
-     bucket=self.bucket
      ref=self.ref 
-     if not bucket.get_blob(f"faceappimage/{img}"):
-      with open(f"{self.imagepath}/{img}","rb") as file:
-       bucket.blob(f"faceappimage/{img}").upload_from_file(file)
      id=img.split(".")[0]
      self.studentids.append(id)
      if not ref.child(id).get():
-       if img.endswith(".jpg") or img.endswith(".png") or img.endswith(".jpeg"):
         cv2img=cv2.imread(f"{self.imagepath}/{img}")
         img=cv2.cvtColor(cv2img,cv2.COLOR_BGR2RGB)
         encode=face_recognition.face_encodings(img)[0]
