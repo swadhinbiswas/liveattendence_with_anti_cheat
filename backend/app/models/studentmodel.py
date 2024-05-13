@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from fastapi import UploadFile,File
 
 class StudentModelshema(BaseModel):
     name: str
@@ -9,4 +10,5 @@ class StudentModelshema(BaseModel):
     Section: str
     Total_Attendance: str
     id: str
+    file: UploadFile=File(...)
     

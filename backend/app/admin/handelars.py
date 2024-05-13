@@ -4,14 +4,33 @@ from fastapi import APIRouter
 from app.settings.connectdb import Firebase
 from typing import Dict,Any,Optional
 from datetime import datetime
+from app.settings.connectdb import Firebase
 from app.functions.encodeGenarator import EndcodeGenarator
+from app.admin.uploadphotoandencode import Encoding
+from app.admin.imagepath import imagepaths
+import asyncio
+
 
 
 db_add=APIRouter()
 db=Firebase()
-imagepath=EndcodeGenarator().imagepath
+
 picklepath=EndcodeGenarator().picklepath
 
+async def uploadimage(filename:str,img):
+    try:
+        content = await img.read()
+        x=f"{imagepaths}/{filename}"
+        print(x)
+        with open(x, "wb+") as file:
+            file.write(content)
+            await asyncio.sleep(3)
+            Firebase.upload_picture(x)
+            
+            
+            
+    except Exception as e:
+        return {"message":str(e)}
 
 @db_add.post("/create")
 async def add_to_db(Student:StudentModelshema):
@@ -26,10 +45,23 @@ async def add_to_db(Student:StudentModelshema):
             "Section": Student.Section,
             "Total_Attendance": Student.Total_Attendance,
             "last_seen": f"{datetime.now().strftime('%d-%m-%Y %H:%M:%S')}",
-        }
+        }  
     }
     x=db.set_data(data)
+    
     return x
+
+@db_add.post("/uploadphoto")
+async def upload_photo(id:str,file:UploadFile=File(...)):
+
+    tempfilename=file.filename
+    x=tempfilename.split(".")[1]
+    studentfilename=f"{id}.{x}"
+    await asyncio.sleep(3)
+    await uploadimage(studentfilename,file)
+    y=Encoding(studentfilename,imagepaths)
+    y.encodings()
+    return {"message":"Image Uploaded Successfully & Encoded"}
 
 @db_add.get("/getstudents")
 async def get_from_db():
@@ -69,18 +101,7 @@ async def get_from_db(limit:int):
     data=db.get_data_by_child_limit("Total_Attendance",limit)
     return data
 
-@db_add.get("/uploadimage")
-async def uploadimage(img:UploadFile=File(...)):
-    try:
-        content = await img.read()
-        with open(imagepath, "wb") as file:
-            file.write(content)
-        return {"message":"Image uploaded"} 
-    
-    except Exception as e:
-        return {"message":str(e)}
-    finally:
-        file.close()
+
 
 
 

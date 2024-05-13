@@ -64,7 +64,12 @@ class Firebase:
   def get_data_by_present(self)->Dict[str,Any]:
     return self.ref.order_by_child("status").equal_to("Present").get()
   
-  
+  def upload_picture(self,img:str)->Dict[str,Any]:
+    bucket=storage.bucket()
+    blob=bucket.blob(f"faceappimage/{img}")
+    blob.upload_from_filename(f"img")
+    
+    return {"message":"Image Uploaded Successfully"}
   def get_picture(self,img:str)->Dict[str,Any]:
     bucket=storage.bucket()
     return bucket.get_blob(f"faceappimage/{img}")
