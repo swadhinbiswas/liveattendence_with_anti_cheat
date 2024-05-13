@@ -10,5 +10,4 @@ class StudentModelshema(BaseModel):
     Section: str
     Total_Attendance: str
     id: str
-    file: UploadFile=File(...)
     
