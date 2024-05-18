@@ -4,6 +4,8 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Login from './components/Login'
 import Addstudent from './components/Addstudent'
 import Admin from './components/Admin/Admin'
+import StudentProfile from './components/Admin/StudentProfile'
+import Delete from './components/Admin/Delete' 
 
 
 
@@ -17,6 +19,11 @@ const App = () => {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/addstudent' element={<Addstudent/>} />
       <Route path='admin' element={<Admin/>} />
+      <Route path='studentprofile' element={<StudentProfile/>} />
+      <Route path="delete" element={Delete} />
+     
+
+      
       
      
     </Routes>

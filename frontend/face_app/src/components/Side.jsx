@@ -10,6 +10,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import '../styles/sidebar.css';
 import '../components/DevInfo';
 import ImageAvatars from '../components/Imageavater';
+import {Link} from 'react-router-dom';
 
 const Side = () => {
  
@@ -22,12 +23,12 @@ const Side = () => {
         <h3>Face App </h3>
       </div>
         <div className="menu-list">
-          <a href='#' className='item'>
+          <Link to='' className='item'>
             <DashboardIcon className='icon'/>
-            Dashboard</a>
-            <a href='#' className='item'>
+            Dashboard</Link>
+            <Link to='/admin' className='item'>
             <AdminPanelSettingsIcon className='icon'/>
-            Admin</a>
+            Admin</Link>
             <a href='#' className='item'>
             <AssessmentIcon className='icon'/>
             Report</a>

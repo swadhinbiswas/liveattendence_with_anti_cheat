@@ -17,7 +17,7 @@
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.18",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    "@mui/x-data-grid": "^7.4.0",
+    "@mui/x-data-grid": "^7.5.0",
     "@mui/x-data-grid-generator": "^7.4.0",
     "axios": "^1.6.8",
     "mdb-react-ui-kit": "^8.0.0",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, TextField } from "@mui/material";
-import '../styles/profile.css'
+import './studentprofile.css'
 
 import MailIcon from '@mui/icons-material/Mail';
 
@@ -12,7 +12,7 @@ import CardMembershipIcon from '@mui/icons-material/CardMembership';
 
 
 
-const Profile = () => {
+const StudentProfile = () => {
   const [studentId, setStudentId] = useState("");
   const [studentData, setStudentData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -171,4 +171,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default StudentProfile;

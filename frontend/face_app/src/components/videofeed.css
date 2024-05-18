@@ -1,0 +1,33 @@
+.video{
+
+  display: flex;
+  justify-content: center;
+
+}
+.test{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.273);
+  padding: 20px;
+  margin-top: 20px;
+  width: 400px;
+
+}
+
+.videofeeds{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+    border-radius: 3px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.273);
+    overflow: hidden;
+    max-width: 400px;
+}

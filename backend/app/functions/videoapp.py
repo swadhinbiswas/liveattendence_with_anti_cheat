@@ -6,15 +6,41 @@ from app.functions.face import Face
 import streamlit as st 
 from app.functions.encodeGenarator import EndcodeGenarator
 from app.functions.getfacefromdatabase import GetgaceandData
+import asyncio
 # from app.settings import setting
 # camip=setting.CAM_IP
-camip="http://192.168.0.104:8080/video"
+camip="http://192.168.0.101:3030/video"
 
 
 
 videorouter = APIRouter()
 
+class Videofeed:
+    def __init__(self):
+        self.cap = cv2.VideoCapture(camip)
+        self.data={}
+        self.cap.set(3, 640)
+        self.cap.set(4, 480)
+    def video_feed(self):
+        while True:
+            success, img = self.cap.read()
+            x=Face(img)
+            frame=x.facedefine()
+            self.data=x.get_student_id()
+            if not success:
+                break
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
     
+    def __del__(self):
+        self.cap.release()
+    def retunx(self):
+        print(self.data)
+        return self.data
+        
+        
 
 def video_feed():
     
@@ -27,7 +53,7 @@ def video_feed():
         x=Face(img)
         frame=x.facedefine()
         
-        # y=x.get_student_id()
+        y=x.get_student_id()
       
         if not success:
             break
@@ -36,15 +62,24 @@ def video_feed():
         frame = buffer.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        
+    
 
     
 
 
 @videorouter.get("/video_feed")
 async def stream():
+    x=Videofeed()
     
-    return StreamingResponse( video_feed(), media_type="multipart/x-mixed-replace; boundary=frame")
+    return StreamingResponse(x.video_feed(), media_type="multipart/x-mixed-replace; boundary=frame")
 
+@videorouter.get("/user")
+async def user():
+    x=Videofeed()
+    y=x.retunx()
+    return y
+   
 
 @videorouter.get("/encode")
 async def encode():

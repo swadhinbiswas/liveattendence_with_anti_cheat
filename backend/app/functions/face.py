@@ -2,6 +2,8 @@ import os
 import pickle
 import cv2
 import numpy as np
+from app.settings.connectdb import Firebase
+
 
 
 from face_recognition import face_locations, face_encodings, compare_faces, face_distance
@@ -9,6 +11,7 @@ class Face():
   def __init__(self,frame):
     self.frame=frame
     self.ids=[]
+    self.ID=''
   def facedefine(self):
 
     
@@ -39,9 +42,20 @@ class Face():
           print(studentIds[matchIndex])
           print(faceCurFrame)
           
+          print("id",self.ids)
+          print(self.ids[0])
+          self.ID=self.ids[0]
+          print("id",self.ID)
+          
     return self.frame
+  
   def get_student_id(self):
-    return self.ids
+    x=Firebase()
+    if self.ids ==True:
+      return x.get_data_by_key(self.ID)
+      
+        
+    
 
        
         
