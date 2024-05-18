@@ -8,7 +8,7 @@ from app.functions.encodeGenarator import EndcodeGenarator
 from app.functions.getfacefromdatabase import GetgaceandData
 # from app.settings import setting
 # camip=setting.CAM_IP
-camip="192.168.0.103"
+camip="http://192.168.0.104:8080/video"
 
 
 
@@ -16,10 +16,9 @@ videorouter = APIRouter()
 
     
 
-
 def video_feed():
     
-    cap = cv2.VideoCapture("http://"+camip+":3030/video")
+    cap = cv2.VideoCapture(camip)
     cap.set(3, 640)
     cap.set(4, 480)
 
@@ -27,7 +26,8 @@ def video_feed():
         success, img = cap.read()
         x=Face(img)
         frame=x.facedefine()
-        y=x.get_student_id()
+        
+        # y=x.get_student_id()
       
         if not success:
             break
@@ -43,13 +43,13 @@ def video_feed():
 @videorouter.get("/video_feed")
 async def stream():
     
-    return StreamingResponse(video_feed(), media_type="multipart/x-mixed-replace; boundary=frame")
+    return StreamingResponse( video_feed(), media_type="multipart/x-mixed-replace; boundary=frame")
 
 
 @videorouter.get("/encode")
-def encode():
+async def encode():
     x=EndcodeGenarator()
-    y= x.findencoding()
+    y=x.findencoding()
     return y
 
 @videorouter.get("/video")
@@ -58,9 +58,7 @@ def video():
 
 @videorouter.get("/genarateface")
 def genarateface():
-    x=EndcodeGenarator()
-    y= x.findencoding()
-    return y
+   pass
 
 @videorouter.get("/getstudentsphotos")
 async def getstudentsphotos():

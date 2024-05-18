@@ -1,0 +1,42 @@
+
+
+.menu{
+  margin: 20px auto;
+  width:400px;
+  height:400px;
+  background-color:#ffffff;
+  display:grid;
+
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+}
+.box{
+  width:140px;
+  height:80px;
+  background-color:#b6deec;
+  display:flex;
+  justify-content:left;
+  align-items:right;
+  font-size:10px;
+  color:#CDE8E5;
+  padding:10px;
+  border-radius:10px;
+}
+.box:hover{
+  background-color:#14abde;
+  color:#ffffff;
+  cursor:pointer;
+}
+.item{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+  color:#2591cfb3;
+  padding:10px;
+  border-radius:10px;
+  size: 80px;
+}

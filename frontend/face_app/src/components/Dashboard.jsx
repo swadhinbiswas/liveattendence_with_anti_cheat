@@ -4,8 +4,8 @@ import Profile from './Profile'
 import Login from './Login'
 import Side from './Side'
 import '../styles/dashboard.css'
-import '../components//VideoStream'
-import VideoStream from '../components//VideoStream'
+import '../components/VideoStream'
+import VideoStream from '../components/VideoStream'
 
 const Dashboard = () => {
   return (

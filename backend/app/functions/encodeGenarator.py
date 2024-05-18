@@ -3,6 +3,8 @@ import pickle
 import face_recognition
 import cv2
 import asyncio
+# from app.settings.connectdb import Firebase
+
 from app.settings.connectdb import Firebase
 
 
@@ -25,11 +27,12 @@ class EndcodeGenarator:
      id=img.split(".")[0]
      self.studentids.append(id)
      if not ref.child(id).get():
+     
         cv2img=cv2.imread(f"{self.imagepath}/{img}")
         img=cv2.cvtColor(cv2img,cv2.COLOR_BGR2RGB)
-        encode=face_recognition.face_encodings(img)[0]
-        self.encodings.append(encode)
-        self.idsref.child(id).set(encode)
+        encoder=face_recognition.face_encodings(img)[0]
+        self.encodings.append(encoder)
+        self.idsref.child(id).set(encoder)
     encodeKnowlist=[self.encodings,self.studentids]
     file=open(self.picklepath,"wb")
     pickle.dump(encodeKnowlist,file)
@@ -41,10 +44,6 @@ class EndcodeGenarator:
       "data":"Knowlist saved in pickle file and Stored in firebase",
     }
 
-
-   
-    
-    
   
 
     

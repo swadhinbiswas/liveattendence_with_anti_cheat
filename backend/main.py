@@ -16,6 +16,9 @@ async def home():
     return {"message":"Welcome to the Live Attendance System"}
 
 
+ 
+   
+
 
 if __name__ == '__main__':
     import uvicorn
